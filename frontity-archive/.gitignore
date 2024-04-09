@@ -1,0 +1,4 @@
+build/
+node_modules/
+packages/arrowhead-homes-mv-theme/node_modules/
+.vercel

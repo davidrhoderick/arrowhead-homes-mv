@@ -1,0 +1,25 @@
+{
+  "name": "ahmv-frontity",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frontity project",
+  "keywords": [
+    "frontity"
+  ],
+  "scripts": {
+    "dev": "frontity dev",
+    "build": "frontity build",
+    "serve": "frontity serve"
+  },
+  "prettier": {},
+  "dependencies": {
+    "@frontity/core": "^1.8.0",
+    "@frontity/html2react": "^1.4.0",
+    "@frontity/tiny-router": "^1.2.1",
+    "@frontity/wp-source": "^1.8.4",
+    "@frontity/yoast": "^2.0.0",
+    "arrowhead-homes-mv-theme": "file:packages/arrowhead-homes-mv-theme",
+    "frontity": "^1.11.1",
+    "frontity-contact-form-7": "^0.1.7"
+  }
+}

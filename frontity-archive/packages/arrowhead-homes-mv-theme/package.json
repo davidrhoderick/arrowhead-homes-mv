@@ -1,0 +1,23 @@
+{
+  "name": "arrowhead-homes-mv-theme",
+  "version": "1.0.0",
+  "description": "Frontity package created using the Frontity CLI.",
+  "keywords": [
+    "frontity",
+    "frontity-theme"
+  ],
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-brands-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "@react-google-maps/api": "^1.10.1",
+    "frontity": "^1.11.1",
+    "global": "^4.4.0",
+    "react-loader-spinner": "^3.1.14",
+    "react-modal": "^3.11.2",
+    "react-slick": "^0.27.11",
+    "slick-carousel": "^1.8.1"
+  }
+}
