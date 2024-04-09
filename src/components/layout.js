@@ -1,50 +1,47 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
- */
+import React from "react"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import parse from "html-react-parser"
 
-import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
-import "./layout.css"
-
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
+const Layout = ({ isHomePage, children }) => {
+  const {
+    wp: {
+      generalSettings: { title },
+    },
+  } = useStaticQuery(graphql`
+    query LayoutQuery {
+      wp {
+        generalSettings {
           title
+          description
         }
       }
     }
   `)
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
-          padding: `var(--size-gutter)`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `var(--space-5)`,
-            fontSize: `var(--font-sm)`,
-          }}
-        >
-          © {new Date().getFullYear()} &middot; Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
-    </>
+    <div className="global-wrapper" data-is-root-path={isHomePage}>
+      <header className="global-header">
+        {isHomePage ? (
+          <h1 className="main-heading">
+            <Link to="/">{parse(title)}</Link>
+          </h1>
+        ) : (
+          <Link className="header-link-home" to="/">
+            {title}
+          </Link>
+        )}
+      </header>
+
+      <main>{children}</main>
+
+      <footer>
+        © {new Date().getFullYear()}, Built with
+        {` `}
+        <a href="https://www.gatsbyjs.com">Gatsby</a>
+        {` `}
+        And <a href="https://wordpress.org/">WordPress</a>
+      </footer>
+    </div>
   )
 }
 
